@@ -56,18 +56,18 @@ type Filters struct {
 }
 
 type Custom struct {
+	OrderInTitle    bool          `toml:"orderInTitle"`
+	Explicit        bool          `toml:"explicit"`
 	CoverArt        string        `toml:"cover_art"`
 	CoverArtQuality model.Quality `toml:"cover_art_quality"`
 	Category        string        `toml:"category"`
 	Subcategories   []string      `toml:"subcategories"`
-	Explicit        bool          `toml:"explicit"`
 	Language        string        `toml:"lang"`
 	Author          string        `toml:"author"`
 	Title           string        `toml:"title"`
 	Description     string        `toml:"description"`
 	OwnerName       string        `toml:"ownerName"`
 	OwnerEmail      string        `toml:"ownerEmail"`
-	OrderInTitle    bool          `toml:"orderInTitle"`
 }
 
 type Server struct {

@@ -105,10 +105,16 @@ func Build(ctx context.Context, feed *model.Feed, cfg *config.Feed, provider url
 			continue
 		}
 
+		var episodeTitle = episode.Title
+		if cfg.Custom.OrderInTitle {
+			order, _ := strconv.Atoi(episode.Order)
+			episodeTitle = fmt.Sprintf("%04d - %s", order+1, episodeTitle)
+		}
+
 		item := itunes.Item{
 			GUID:        episode.ID,
 			Link:        episode.VideoURL,
-			Title:       episode.Title,
+			Title:       episodeTitle,
 			Description: episode.Description,
 			ISubtitle:   episode.Title,
 			// Some app prefer 1-based order

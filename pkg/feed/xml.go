@@ -108,6 +108,7 @@ func Build(ctx context.Context, feed *model.Feed, cfg *config.Feed, provider url
 		var episodeTitle = episode.Title
 		if cfg.Custom.OrderInTitle {
 			order, _ := strconv.Atoi(episode.Order)
+			// the playlist is numbered from zero, so update the order
 			episodeTitle = fmt.Sprintf("%04d - %s", order+1, episodeTitle)
 		}
 
